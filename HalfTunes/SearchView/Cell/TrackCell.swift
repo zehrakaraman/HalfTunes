@@ -9,6 +9,7 @@ import UIKit
 
 class TrackCell: UITableViewCell {
     
+    static let idetifier = "TrackCell"
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!

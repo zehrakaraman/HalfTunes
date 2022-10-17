@@ -10,8 +10,9 @@ import UIKit
 class SearchViewController: UIViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
-
     @IBOutlet weak var searchResultsTableView: UITableView!
+    
+    var searchResults: [Track] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,21 @@ extension SearchViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         
+    }
+    
+}
+
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchResults.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TrackCell.idetifier, for: indexPath) as! TrackCell
+        let track = searchResults[indexPath.row]
+        cell.configure(track, downloaded: false)
+        return cell
     }
     
 }
