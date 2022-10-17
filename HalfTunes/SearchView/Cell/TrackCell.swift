@@ -18,8 +18,12 @@ class TrackCell: UITableViewCell {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
     
-    func configure() {
+    func configure(_ track: Track, downloaded: Bool) {
+        titleLabel.text = track.name
+        artistLabel.text = track.artist
         
+        selectionStyle = downloaded ? UITableViewCell.SelectionStyle.gray : UITableViewCell.SelectionStyle.none
+        downloadButton.isHidden = downloaded
     }
 
 }
