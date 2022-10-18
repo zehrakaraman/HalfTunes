@@ -74,16 +74,25 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="37.333333333333336"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="plain" image="arrow.down.circle" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="downloadTapped:" destination="SxJ-mB-hSM" eventType="touchUpInside" id="WzI-sR-Kzc"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s17-hz-ORB">
                                                                             <rect key="frame" x="41.666666666666686" y="0.0" width="49.666666666666657" height="37.333333333333336"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="plain" image="pause.circle" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="pauseOrResumeTapped:" destination="SxJ-mB-hSM" eventType="touchUpInside" id="Hhl-53-zAS"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qR-ff-z5Y">
                                                                             <rect key="frame" x="83.333333333333314" y="0.0" width="49.666666666666657" height="37.333333333333336"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="plain" image="multiply.circle" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="cancelTapped:" destination="SxJ-mB-hSM" eventType="touchUpInside" id="jZe-av-b4o"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>

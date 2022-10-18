@@ -7,9 +7,18 @@
 
 import UIKit
 
+protocol TrackCellDelegate {
+    func downloadTapped(_ cell: TrackCell)
+    func pauseTapped(_ cell: TrackCell)
+    func resumeTapped(_ cell: TrackCell)
+    func cancelTapped(_ cell: TrackCell)
+}
+
 class TrackCell: UITableViewCell {
     
     static let idetifier = "TrackCell"
+    
+    var delegate: TrackCellDelegate?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
@@ -27,4 +36,20 @@ class TrackCell: UITableViewCell {
         downloadButton.isHidden = downloaded
     }
 
+    @IBAction func downloadTapped(_ sender: Any) {
+        delegate?.downloadTapped(self)
+    }
+    
+    @IBAction func pauseOrResumeTapped(_ sender: Any) {
+        if pauseButton.currentImage == UIImage(named: "pause.circle") {
+            delegate?.pauseTapped(self)
+        } else {
+            delegate?.resumeTapped(self)
+        }
+    }
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        delegate?.cancelTapped(self)
+    }
+    
 }

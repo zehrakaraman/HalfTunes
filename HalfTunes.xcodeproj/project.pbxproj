@@ -17,6 +17,7 @@
 		FA3FE3C428FDF13C00A2A3F7 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE3C328FDF13C00A2A3F7 /* TrackCell.swift */; };
 		FA3FE3C728FDF7A700A2A3F7 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE3C628FDF7A700A2A3F7 /* Track.swift */; };
 		FA6E2DF628FE8D5B00AD7664 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E2DF528FE8D5B00AD7664 /* QueryService.swift */; };
+		FAFE8DC728FEEB8D00C93D36 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE8DC628FEEB8D00C93D36 /* DownloadService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FA3FE3C328FDF13C00A2A3F7 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		FA3FE3C628FDF7A700A2A3F7 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		FA6E2DF528FE8D5B00AD7664 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
+		FAFE8DC628FEEB8D00C93D36 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6E2DF528FE8D5B00AD7664 /* QueryService.swift */,
+				FAFE8DC628FEEB8D00C93D36 /* DownloadService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3FE3C428FDF13C00A2A3F7 /* TrackCell.swift in Sources */,
+				FAFE8DC728FEEB8D00C93D36 /* DownloadService.swift in Sources */,
 				FA3FE3BF28FDEF0E00A2A3F7 /* SearchViewController.swift in Sources */,
 				FA3FE3A928FDEDB200A2A3F7 /* AppDelegate.swift in Sources */,
 				FA3FE3C128FDEF1C00A2A3F7 /* SearchViewModel.swift in Sources */,

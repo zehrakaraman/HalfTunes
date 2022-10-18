@@ -18,6 +18,7 @@ class SearchViewModel {
     var searchResults: [Track] = []
     
     let queryService = QueryService()
+    let downloadService = DownloadService()
     
     func getSearchResults(searchTerm: String) {
         queryService.getSearchResults(searchTerm: searchTerm) { [weak self] results, errorMessage in
