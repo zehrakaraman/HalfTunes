@@ -11,6 +11,6 @@ struct Track {
     let id: Int
     let name: String
     let artist: String
-    let previewURL: URL? = nil
+    let previewURL: URL
     var downloaded = false
 }

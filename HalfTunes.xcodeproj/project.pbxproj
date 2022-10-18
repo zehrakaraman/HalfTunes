@@ -16,6 +16,7 @@
 		FA3FE3C128FDEF1C00A2A3F7 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE3C028FDEF1C00A2A3F7 /* SearchViewModel.swift */; };
 		FA3FE3C428FDF13C00A2A3F7 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE3C328FDF13C00A2A3F7 /* TrackCell.swift */; };
 		FA3FE3C728FDF7A700A2A3F7 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3FE3C628FDF7A700A2A3F7 /* Track.swift */; };
+		FA6E2DF628FE8D5B00AD7664 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6E2DF528FE8D5B00AD7664 /* QueryService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FA3FE3C028FDEF1C00A2A3F7 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		FA3FE3C328FDF13C00A2A3F7 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		FA3FE3C628FDF7A700A2A3F7 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		FA6E2DF528FE8D5B00AD7664 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				FA3FE3BC28FDEDD900A2A3F7 /* Common */,
 				FA3FE3C528FDF79700A2A3F7 /* Models */,
+				FA6E2DF328FE8D2A00AD7664 /* Networking */,
 				FA3FE3BD28FDEEF500A2A3F7 /* SearchView */,
 				FA3FE3B628FDEDB400A2A3F7 /* Info.plist */,
 			);
@@ -106,6 +109,14 @@
 				FA3FE3C628FDF7A700A2A3F7 /* Track.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FA6E2DF328FE8D2A00AD7664 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FA6E2DF528FE8D5B00AD7664 /* QueryService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 				FA3FE3BF28FDEF0E00A2A3F7 /* SearchViewController.swift in Sources */,
 				FA3FE3A928FDEDB200A2A3F7 /* AppDelegate.swift in Sources */,
 				FA3FE3C128FDEF1C00A2A3F7 /* SearchViewModel.swift in Sources */,
+				FA6E2DF628FE8D5B00AD7664 /* QueryService.swift in Sources */,
 				FA3FE3AB28FDEDB200A2A3F7 /* SceneDelegate.swift in Sources */,
 				FA3FE3C728FDF7A700A2A3F7 /* Track.swift in Sources */,
 			);

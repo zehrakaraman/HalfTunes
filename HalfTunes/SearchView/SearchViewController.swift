@@ -12,6 +12,7 @@ class SearchViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     @IBOutlet weak var searchResultsTableView: UITableView!
     
+    let queryService = QueryService()
     var searchResults: [Track] = []
     
     override func viewDidLoad() {
@@ -34,7 +35,20 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
+            return
+        }
         
+        queryService.getSearchResults(searchTerm: searchText) { [weak self] results, errorMessage in
+            if let results = results {
+                self?.searchResults = results
+                self?.searchResultsTableView.reloadData()
+            }
+            
+            if !errorMessage.isEmpty {
+                print("Search error: \(errorMessage)")
+            }
+        }
     }
     
 }
