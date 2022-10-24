@@ -58,7 +58,7 @@ class SearchViewController: UIViewController {
     }
     
     func reload(_ row: Int) {
-        searchResultsTableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .none)
+        searchResultsTableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
     }
 
 }
@@ -87,7 +87,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let track = viewModel.searchResults[indexPath.row]
         cell.delegate = self
         cell.configure(track, downloaded: track.downloaded, download: downloadService.activeDownloads[track.previewURL])
-        reload(indexPath.row)
+        
         return cell
     }
     
@@ -137,6 +137,18 @@ extension SearchViewController: URLSessionDownloadDelegate {
             }
         }
         
+    }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        guard let url = downloadTask.originalRequest?.url,
+              var download = downloadService.activeDownloads[url] else { return }
+        download.progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
+        let totalSize = ByteCountFormatter.string(fromByteCount: totalBytesExpectedToWrite, countStyle: .file)
+        DispatchQueue.main.async {
+            if let trackCell = self.searchResultsTableView.cellForRow(at: IndexPath(row: download.track.id, section: 0)) as? TrackCell {
+                trackCell.updateDisplay(progress: download.progress, totalSize: totalSize)
+            }
+        }
     }
     
 }

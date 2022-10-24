@@ -38,13 +38,22 @@ class TrackCell: UITableViewCell {
             showDownloadControls = true
             let image = download.isDownloading ? "pause.circle" : "play.circle"
             pauseButton.setImage(UIImage(systemName: image), for: .normal)
+
+            progressLabel.text = download.isDownloading ? "Downloading" : "Paused"
         }
         
         pauseButton.isHidden = !showDownloadControls
         cancelButton.isHidden = !showDownloadControls
+        progressView.isHidden = !showDownloadControls
+        progressLabel.isHidden = !showDownloadControls
         
         selectionStyle = downloaded ? UITableViewCell.SelectionStyle.none : UITableViewCell.SelectionStyle.blue
         downloadButton.isHidden = downloaded || showDownloadControls
+    }
+    
+    func updateDisplay(progress: Float, totalSize: String) {
+        progressView.progress = progress
+        progressLabel.text = String(format: "%.1f% %of %@", progress * 100, totalSize)
     }
 
     @IBAction func downloadTapped(_ sender: Any) {
@@ -55,9 +64,11 @@ class TrackCell: UITableViewCell {
         if pauseButton.currentImage == UIImage(systemName: "pause.circle") {
             pauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
             delegate?.pauseTapped(self)
+            print("Stopped")
         } else {
             pauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
             delegate?.resumeTapped(self)
+            print("Resumed")
         }
     }
     
