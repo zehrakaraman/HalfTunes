@@ -28,12 +28,23 @@ class TrackCell: UITableViewCell {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
     
-    func configure(_ track: Track, downloaded: Bool) {
+    func configure(_ track: Track, downloaded: Bool, download: Download?) {
+        var showDownloadControls = false
+        
         titleLabel.text = track.name
         artistLabel.text = track.artist
         
-        selectionStyle = downloaded ? UITableViewCell.SelectionStyle.gray : UITableViewCell.SelectionStyle.none
-        downloadButton.isHidden = downloaded
+        if let download = download {
+            showDownloadControls = true
+            let image = download.isDownloading ? "pause.circle" : "play.circle"
+            pauseButton.setImage(UIImage(systemName: image), for: .normal)
+        }
+        
+        pauseButton.isHidden = !showDownloadControls
+        cancelButton.isHidden = !showDownloadControls
+        
+        selectionStyle = downloaded ? UITableViewCell.SelectionStyle.none : UITableViewCell.SelectionStyle.blue
+        downloadButton.isHidden = downloaded || showDownloadControls
     }
 
     @IBAction func downloadTapped(_ sender: Any) {
@@ -41,9 +52,11 @@ class TrackCell: UITableViewCell {
     }
     
     @IBAction func pauseOrResumeTapped(_ sender: Any) {
-        if pauseButton.currentImage == UIImage(named: "pause.circle") {
+        if pauseButton.currentImage == UIImage(systemName: "pause.circle") {
+            pauseButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
             delegate?.pauseTapped(self)
         } else {
+            pauseButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
             delegate?.resumeTapped(self)
         }
     }
